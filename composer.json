@@ -1,0 +1,19 @@
+{
+    "name": "catpow/simple-broken-link-finder",
+    "type": "library",
+    "description": "Check broken links in html and php files, not perfect but fast",
+    "keywords": ["html", "broken", "links"],
+    "homepage": "https://github.com/synchrovision/simple-broken-link-finder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Catpow",
+            "homepage": "https://catpow.info"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Catpow\\SimpleBrokenLinkFinder\\": "src/"
+        }
+    }
+}
