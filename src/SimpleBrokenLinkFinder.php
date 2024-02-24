@@ -20,7 +20,7 @@ class SimpleBrokenLinkFinder{
 				foreach(array_column($matches,3) as $url){
 					if($root_path=self::get_root_path($url,$target_dir)){
 						if(!file_exists($root_dir.$root_path)){
-							$results[$root_path][$target_dir.'/'.$fname]=true;
+							$results[$root_path][$target_dir.'/'.$fname]=$target_dir.'/'.$fname;
 						}
 					}
 				}
