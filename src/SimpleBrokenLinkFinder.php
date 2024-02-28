@@ -34,7 +34,7 @@ class SimpleBrokenLinkFinder{
 			preg_match('/^\w+:/',$path) ||
 			strpos($path,'//')===0 ||
 			strpos($path,'$')!==false || 
-			strpos($path,'%s')!==false || 
+			preg_match('/%\d*s/',$path) || 
 			strpos($path,'{')!==false || 
 			strpos($path,'[')!==false || 
 			strpos($path,'<?')!==false || 
