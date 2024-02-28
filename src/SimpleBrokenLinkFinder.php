@@ -9,7 +9,7 @@ class SimpleBrokenLinkFinder{
 			if($fname[0]==='.' || $fname[0]==='_'){continue;}
 			$f=$dir.'/'.$fname;
 			if(is_dir($f)){
-				if(in_array($fname,['wp-content','wp-admin','node_modules'],true)){continue;}
+				if(in_array($fname,['wp-content','wp-includes','wp-admin','node_modules'],true)){continue;}
 				if($fname==='vendor' && file_exists($f.'/autoload.php')){continue;}
 				$results=array_merge_recursive($results,self::search($root_dir,$target_dir.'/'.$fname));
 				continue;
