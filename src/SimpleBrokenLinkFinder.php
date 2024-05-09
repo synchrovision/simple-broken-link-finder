@@ -19,9 +19,15 @@ class SimpleBrokenLinkFinder{
 				preg_match_all('/(src|srcset|href)\s*=\s*([\'"])(.+?)\2/m',file_get_contents($f),$matches,\PREG_SET_ORDER);
 				foreach(array_column($matches,3) as $url){
 					if($root_path=self::get_root_path($url,$target_dir)){
-						if(!file_exists($root_dir.$root_path)){
-							$results[$root_path][$target_dir.'/'.$fname]=$target_dir.'/'.$fname;
+						if(file_exists($root_dir.$root_path)){continue;}
+						$parent_dir=dirname($root_path);
+						while($parent_dir!=='/'){
+							if(file_exists($root_dir.$parent_dir.'/wp-content')){
+								continue 2;
+							}
+							$parent_dir=dirname($parent_dir);
 						}
+						$results[$root_path][$target_dir.'/'.$fname]=$target_dir.'/'.$fname;
 					}
 				}
 			}
